@@ -15,12 +15,8 @@ class SeriesController extends Controller
             'Lost'
         ];
 
-        $html = '<ul>';
-        foreach ($series as $serie) {
-            $html .= "<li> $serie </li>";
-        }
-        $html .= '</ul>';
-
-        return ($html);
+        return view('listar-series', [
+            'series' => $series
+        ]);
     }
 }
