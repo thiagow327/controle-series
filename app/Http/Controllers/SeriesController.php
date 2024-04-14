@@ -24,10 +24,7 @@ class SeriesController extends Controller
     {
         $nomeSerie = $request->input('nome');
 
-        if (DB::insert('INSERT INTO series (nome) VALUES (?)', [$nomeSerie])) {
-            return ("Adicionado com sucesso");
-        } else {
-            return ("Falha ao adicionar");
-        }
+        DB::insert('INSERT INTO series (nome) VALUES (?)', [$nomeSerie]);
+        return redirect('/series');
     }
 }
