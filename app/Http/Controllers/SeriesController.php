@@ -17,4 +17,9 @@ class SeriesController extends Controller
 
         return view('series.index')->with('series', $series); // with get argument string and create array with key : variable
     }
+
+    public function create()
+    {
+        return view('series.create');
+    }
 }
