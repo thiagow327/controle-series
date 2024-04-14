@@ -15,8 +15,6 @@ class SeriesController extends Controller
             'Lost'
         ];
 
-        return view('listar-series', [
-            'series' => $series
-        ]);
+        return view('listar-series', compact('series')); // compact get argument string and create array with key : variable
     }
 }
