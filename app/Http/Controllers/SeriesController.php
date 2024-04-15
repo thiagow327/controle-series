@@ -21,23 +21,21 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    // public function store(Request $request)
-    // {
-    //     Serie::create([$request->all()]);
+    //  public function store(Request $request)
+    //  {
+    //      Serie::create([$request->all()]);
 
-    //     return redirect('/series');
-    // }
+    //      return to_route('series.index');
+    //  }
 
     public function store(Request $request)
     {
         $request->validate([
             'nome' => 'required',
         ]);
-
         Serie::create([
             'nome' => $request->input('nome'),
         ]);
-
-        return redirect('/series');
+        return to_route('series.index');
     }
 }
