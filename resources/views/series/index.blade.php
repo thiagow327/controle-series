@@ -3,8 +3,15 @@
 
     <ul class="list-group">
         @foreach ($series as $serie)
-            <li class="list-group-item"> {{ htmlentities($serie->nome) }} </li>
-            <!-- usamos 'htmlentities' para escapes evitando Cross-site scripting (XSS) -->
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ $serie->nome }}
+
+                <form action="{{ route('series.destroy', $serie->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger btn-sm">x</button>
+                </form>
+            </li>
         @endforeach
     </ul>
 </x-layout>
